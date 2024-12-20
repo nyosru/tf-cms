@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
 
+Route::get('/', function () {
+    return redirect(route('buh.zakazs') );
+});
+
 Route::get('/counter', Counter::class);
 
 $d = function () {
@@ -24,7 +28,6 @@ Route::group([
 //    'domain' => (env('APP_ENV', 'local') == 'local') ? '1.php-cat.local' : '1.php-cat.com'
 //], $d);
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
