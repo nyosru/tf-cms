@@ -41,7 +41,8 @@
 
             <thead>
             <tr>
-                <th scope="col" style="text-align: center">№ заказа</th>
+                <th scope="col" style="text-align: center">№<br/>заказа</th>
+                <th scope="col" style="text-align: center">Дата<br/>создания</th>
                 <th scope="col" style="text-align: center">
                     ФИО Клиента
                     <br/>
@@ -49,7 +50,7 @@
                     {{--            <th scope="col">--}}
                     Заказ
                 </th>
-                            <th scope="col" style="text-align: center">Дата<br/>создания</th>
+
 
                 {{--            <th scope="col">№ Заказа</th>--}}
                 <th scope="col" class="text-end">Цена</th>
@@ -136,6 +137,18 @@
 
 
                         </td>
+
+                        <td>
+                            {{--                             {{ $order->add_ts ?? '-' }}--}}
+                            {{--                             <br/>--}}
+                            @if (!empty($order->add_ts))
+                                {{--                                 {{ \Carbon\Carbon::parse($order->add_ts)->format('d.m.Y H:i') }}--}}
+                                {{ \Carbon\Carbon::parse($order->add_ts)->format('d.m.y') }}
+                            @else
+                                -
+                            @endif
+                        </td>
+
                         {{--                фио клиента--}}
                         <td>
                             <b>{{ $order->client->name_i }} {{ $order->client->name_f }} {{ $order->client->name_o }}</b>
@@ -148,16 +161,7 @@
                             {{--                <td>--}}
                             {{ $order->name }}</td>
                         {{-- дата создания--}}
-                         <td>
-{{--                             {{ $order->add_ts ?? '-' }}--}}
-{{--                             <br/>--}}
-                             @if (!empty($order->add_ts))
-{{--                                 {{ \Carbon\Carbon::parse($order->add_ts)->format('d.m.Y H:i') }}--}}
-                                 {{ \Carbon\Carbon::parse($order->add_ts)->format('d.m.y') }}
-                             @else
-                                 -
-                             @endif
-                         </td>
+
                         {{-- <td>-</td>--}}
                         <td class="text-end"
                             style="font-size: 120%">{{ $order->price ? number_format($order->price,0,'.','`') : '-' }}</td>

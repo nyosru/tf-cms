@@ -21,6 +21,7 @@ class BuhZakaz extends Component
     public $visible = [];
 //    public $searchTerm;
 //    public $users;
+//    #[Url(as:'page',history: true)]
     public $currentPage = 1;
 
 
