@@ -41,15 +41,15 @@
 
             <thead>
             <tr>
-                <th scope="col">№ заказа</th>
-                <th scope="col">
+                <th scope="col" style="text-align: center">№ заказа</th>
+                <th scope="col" style="text-align: center">
                     ФИО Клиента
                     <br/>
                     {{--            </th>--}}
                     {{--            <th scope="col">--}}
                     Заказ
                 </th>
-                {{--            <th scope="col">Дата создания</th>--}}
+                            <th scope="col" style="text-align: center">Дата<br/>создания</th>
 
                 {{--            <th scope="col">№ Заказа</th>--}}
                 <th scope="col" class="text-end">Цена</th>
@@ -109,7 +109,7 @@
                         {{--                <td>{{ $items->firstItem() + $key }}</td>--}}
 
                         {{--                номер заказа--}}
-                        <td>
+                        <td  style="text-align: center" >
 
                             @if( $order->service == "A" )
                                 <a href="https://crm.marudi.store/fabcrm/page/order_info?service_id={{ $order->service . $order->virtual_service_id }}&service&id={{ $order->id }}"
@@ -148,7 +148,16 @@
                             {{--                <td>--}}
                             {{ $order->name }}</td>
                         {{-- дата создания--}}
-                        {{-- <td>{{ !empty($order->created_at) ? $order->created_at->format('d.m.Y H:i:s') : '-' }}</td>--}}
+                         <td>
+{{--                             {{ $order->add_ts ?? '-' }}--}}
+{{--                             <br/>--}}
+                             @if (!empty($order->add_ts))
+{{--                                 {{ \Carbon\Carbon::parse($order->add_ts)->format('d.m.Y H:i') }}--}}
+                                 {{ \Carbon\Carbon::parse($order->add_ts)->format('d.m.y') }}
+                             @else
+                                 -
+                             @endif
+                         </td>
                         {{-- <td>-</td>--}}
                         <td class="text-end"
                             style="font-size: 120%">{{ $order->price ? number_format($order->price,0,'.','`') : '-' }}</td>

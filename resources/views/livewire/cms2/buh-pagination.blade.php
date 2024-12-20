@@ -64,13 +64,13 @@
             <div>
                 <p class="small text-muted">
 {{--                    {!! __('Showing') !!}--}}
-                    Страница
+                    Заказы с
                     <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
 {{--                    {!! __('to') !!}--}}
-                    из
+                    по
                     <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
 {{--                    {!! __('of') !!}--}}
-                    <br/> Заказов:
+                    <br/>Заказов выбрано:
                     <span class="fw-semibold">{{ $paginator->total() }}</span>
 
 {{--                    {!! __('results') !!}--}}
